@@ -17,7 +17,10 @@
       color: #fff;
       background: #0f0f0f;
       overflow-x: hidden;
-      padding-top: 80px; /* Ensure content is not hidden behind fixed header */
+      padding-top: 80px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
     header {
       background: #1f1f1f;
@@ -54,7 +57,6 @@
       background-size: cover;
       background-position: center;
       position: relative;
-      animation: fadeIn 1s ease-in-out;
     }
     .hero h2 {
       font-size: 60px;
@@ -78,25 +80,12 @@
     .cta-btn:hover {
       background: #ff4500;
     }
-    .join-btn {
-      background: #4caf50;
-      padding: 12px 30px;
-      font-size: 20px;
-      color: #fff;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-    .join-btn:hover {
-      background: #388e3c;
-    }
-    .features, .support {
+    .features {
       padding: 60px 20px;
       background: #1a1a1a;
       text-align: center;
-      animation: fadeIn 1s ease-in-out;
     }
-    .features h2, .support h2 {
+    .features h2 {
       font-size: 40px;
       margin-bottom: 20px;
     }
@@ -104,8 +93,6 @@
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;
-      gap: 30px;
-      margin-top: 20px;
     }
     .feature-item {
       background: #333;
@@ -119,15 +106,26 @@
     .feature-item:hover {
       transform: translateY(-10px);
     }
-    .feature-item h3 {
+    .stats {
+      padding: 60px 20px;
+      background: #333;
+      text-align: center;
+      color: #fff;
+    }
+    .stats h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+    .stat {
       font-size: 24px;
-      margin-bottom: 15px;
+      margin: 10px 0;
     }
     .footer {
       background: #111;
       padding: 20px;
       text-align: center;
       color: #888;
+      margin-top: auto;
     }
     .avatar-img {
       border-radius: 50%;
@@ -135,27 +133,22 @@
       height: 100px;
       margin-bottom: 20px;
     }
-    .cta-btn {
-      background: #ff6347;
-      padding: 12px 30px;
-      font-size: 20px;
+    .reviews {
+      background: #333;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .review-text {
+      font-size: 24px;
       color: #fff;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
+      font-style: italic;
+      transition: opacity 1s ease-in-out;
     }
-    .cta-btn:hover {
-      background: #ff4500;
-    }
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .review-author {
+      margin-top: 20px;
+      color: #ff6347;
+      font-size: 18px;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -166,25 +159,16 @@
     <h1>LunarBot</h1>
   </header>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="#home" class="nav-link">Home</a>
-    <a href="#features" class="nav-link">Features</a>
-    <a href="#support" class="nav-link">Support</a>
-  </nav>
-
   <!-- Hero Section -->
-  <section id="home" class="hero">
+  <section class="hero">
     <img class="avatar-img" src="https://cdn.discordapp.com/avatars/1160757700515352647/a_7ee2c8c7b02e839d232364eed8932c36.gif" alt="LunarBot Avatar">
     <h2>Welcome to LunarBot</h2>
     <p>The Ultimate Bot for Your Discord Server</p>
     <a class="cta-btn" href="https://discordapp.com/oauth2/authorize?client_id=1160757700515352647&scope=bot&permissions=2146958847" target="_blank">Invite LunarBot</a>
-    <br>
-    <a class="join-btn" href="https://discord.gg/your-discord-invite" target="_blank">Join Our Discord</a>
   </section>
 
   <!-- Features Section -->
-  <section id="features" class="features">
+  <section class="features">
     <h2>Features</h2>
     <div class="feature-list">
       <div class="feature-item">
@@ -210,10 +194,19 @@
     </div>
   </section>
 
-  <!-- Support Section -->
-  <section id="support" class="support">
-    <h2>Need Support?</h2>
-    <p>If you need any assistance with LunarBot, feel free to use the command <code>/support</code> in the bot or email us at <a href="mailto:lunarbotdc@gmail.com">lunarbotdc@gmail.com</a>.</p>
+  <!-- Stats Section -->
+  <section class="stats">
+    <h2>LunarBot Stats</h2>
+    <div class="stat">Used in Over 150+ Servers</div>
+    <div class="stat">9K+ Users</div>
+    <div class="stat">99.9% Uptime</div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section class="reviews">
+    <h2>User Reviews</h2>
+    <div class="review-text" id="review-text">Loading reviews...</div>
+    <div class="review-author" id="review-author"></div>
   </section>
 
   <!-- Footer Section -->
@@ -222,24 +215,41 @@
   </footer>
 
   <script>
-    // Scroll behavior for active links in the nav
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('section');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (scrollY >= sectionTop - 60) {
-          current = section.getAttribute('id');
-        }
-      });
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
-      });
-    });
+    const reviews = [
+      { text: "Amazing bot! It has everything I need for managing my server. Highly recommended!", author: "- John Doe" },
+      { text: "Great bot but sometimes buggy. Needs improvement in stability.", author: "- Jane Smith" },
+      { text: "Horrible experience. Bot crashed multiple times and had issues with commands.", author: "- Alex Johnson" },
+      { text: "LunarBot has great features, but there are occasional hiccups with the command processing.", author: "- Michael Davis" },
+      { text: "This bot is amazing! It’s helped me manage my server effortlessly.", author: "- Emily White" },
+      { text: "Bad bot. Don’t recommend it, too many bugs and slow response time.", author: "- Chris Black" },
+      { text: "Terrible bot. Doesn’t work most of the time, and support is non-existent.", author: "- Sarah King" },
+      { text: "The bot often lags and takes forever to process commands. Very disappointing.", author: "- Nathaniel Harris" },
+      { text: "Waste of time. Constantly breaking and no real customer support.", author: "- Olivia Moore" },
+      { text: "Not impressed at all. The bot is just glitchy and slow to respond.", author: "- William Turner" },
+      { text: "LunarBot did not meet my expectations. Very slow and unreliable.", author: "- Sophie Lewis" }
+    ];
+
+    let currentReviewIndex = 0;
+
+    function rotateReview() {
+      const reviewText = document.getElementById("review-text");
+      const reviewAuthor = document.getElementById("review-author");
+      
+      reviewText.style.opacity = 0;
+      
+      setTimeout(() => {
+        reviewText.textContent = reviews[currentReviewIndex].text;
+        reviewAuthor.textContent = reviews[currentReviewIndex].author;
+        reviewText.style.opacity = 1;
+        
+        currentReviewIndex = (currentReviewIndex + 1) % reviews.length;
+      }, 1000);
+    }
+
+    setInterval(rotateReview, 5000); // Change review every 5 seconds
+
+    // Initial call to populate the first review
+    rotateReview();
   </script>
 
 </body>
