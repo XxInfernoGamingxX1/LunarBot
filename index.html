@@ -44,7 +44,7 @@
       text-decoration: none;
       transition: color 0.3s ease;
     }
-    nav a:hover {
+    nav a:hover, .active {
       color: #ff6347;
     }
     .hero {
@@ -54,6 +54,7 @@
       background-size: cover;
       background-position: center;
       position: relative;
+      animation: fadeIn 1s ease-in-out;
     }
     .hero h2 {
       font-size: 60px;
@@ -77,10 +78,23 @@
     .cta-btn:hover {
       background: #ff4500;
     }
+    .join-btn {
+      background: #4caf50;
+      padding: 12px 30px;
+      font-size: 20px;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .join-btn:hover {
+      background: #388e3c;
+    }
     .features, .support {
       padding: 60px 20px;
       background: #1a1a1a;
       text-align: center;
+      animation: fadeIn 1s ease-in-out;
     }
     .features h2, .support h2 {
       font-size: 40px;
@@ -90,6 +104,8 @@
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 20px;
     }
     .feature-item {
       background: #333;
@@ -131,6 +147,16 @@
     .cta-btn:hover {
       background: #ff4500;
     }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
@@ -142,9 +168,9 @@
 
   <!-- Navigation -->
   <nav>
-    <a href="#home">Home</a>
-    <a href="#features">Features</a>
-    <a href="#support">Support</a>
+    <a href="#home" class="nav-link">Home</a>
+    <a href="#features" class="nav-link">Features</a>
+    <a href="#support" class="nav-link">Support</a>
   </nav>
 
   <!-- Hero Section -->
@@ -153,6 +179,8 @@
     <h2>Welcome to LunarBot</h2>
     <p>The Ultimate Bot for Your Discord Server</p>
     <a class="cta-btn" href="https://discordapp.com/oauth2/authorize?client_id=1160757700515352647&scope=bot&permissions=2146958847" target="_blank">Invite LunarBot</a>
+    <br>
+    <a class="join-btn" href="https://discord.gg/your-discord-invite" target="_blank">Join Our Discord</a>
   </section>
 
   <!-- Features Section -->
@@ -192,6 +220,27 @@
   <footer class="footer">
     <p>&copy; 2025 LunarBot | Developed by XxInfernoGamingxX</p>
   </footer>
+
+  <script>
+    // Scroll behavior for active links in the nav
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollY >= sectionTop - 60) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
