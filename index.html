@@ -3,38 +3,157 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LunarBot</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="https://cdn.discordapp.com/avatars/1160757700515352647/a_7ee2c8c7b02e839d232364eed8932c36.gif" type="image/gif">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>LunarBot - Official Website</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+      background: #0f0f0f;
+      overflow-x: hidden;
+    }
+    header {
+      background: #1f1f1f;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 36px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .hero {
+      background: linear-gradient(135deg, rgba(0, 72, 133, 1) 0%, rgba(59, 103, 255, 1) 100%);
+      padding: 100px 20px;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .hero h2 {
+      font-size: 60px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 20px;
+      color: #ddd;
+      margin-bottom: 40px;
+    }
+    .cta-btn {
+      background: #ff6347;
+      padding: 12px 30px;
+      font-size: 20px;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .cta-btn:hover {
+      background: #ff4500;
+    }
+    .features {
+      padding: 60px 20px;
+      background: #1a1a1a;
+      text-align: center;
+    }
+    .features h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+    .feature-list {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    .feature-item {
+      background: #333;
+      width: 30%;
+      margin: 15px;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .feature-item:hover {
+      transform: translateY(-10px);
+    }
+    .feature-item h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    .footer {
+      background: #111;
+      padding: 20px;
+      text-align: center;
+      color: #888;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+    .avatar-img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
-  <!-- Header with Logo -->
+
+  <!-- Header Section -->
   <header>
-    <div class="logo">
-      <img src="https://cdn.discordapp.com/avatars/1160757700515352647/a_7ee2c8c7b02e839d232364eed8932c36.gif" alt="LunarBot Logo" class="logo-image">
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#commands">Commands</a></li>
-        <li><a href="#invite">Invite</a></li>
-        <li><a href="#support">Support</a></li>
-      </ul>
-    </nav>
+    <h1>LunarBot</h1>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <img src="https://cdn.discordapp.com/avatars/1160757700515352647/a_7ee2c8c7b02e839d232364eed8932c36.gif" alt="LunarBot Logo" class="hero-logo">
-    <h1>Welcome to LunarBot</h1>
-    <p>Manage your Discord server effortlessly with modern tools and features.</p>
-    <a href="#invite" class="cta">Invite LunarBot</a>
+    <img class="avatar-img" src="https://cdn.discordapp.com/avatars/1160757700515352647/a_7ee2c8c7b02e839d232364eed8932c36.gif" alt="LunarBot Avatar">
+    <h2>Welcome to LunarBot</h2>
+    <p>The Ultimate Bot for Your Discord Server</p>
+    <a class="cta-btn" href="https://discordapp.com/oauth2/authorize?client_id=1160757700515352647&scope=bot&permissions=2146958847" target="_blank">Invite LunarBot</a>
   </section>
 
-  <!-- Footer with Logo -->
-  <footer>
-    <p>© 2025 LunarBot. All rights reserved.</p>
-    <img src="https://cdn.discordapp.com/avatars/1160757700515352647/a_7ee2c8c7b02e839d232364eed8932c36.gif" alt="LunarBot Logo" class="footer-logo">
+  <!-- Features Section -->
+  <section class="features">
+    <h2>Features</h2>
+    <div class="feature-list">
+      <div class="feature-item">
+        <h3>CAPTCHA Verification</h3>
+        <p>Ensure that only real users can join your server with advanced CAPTCHA verification.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Ticket System</h3>
+        <p>Provide a support ticket system to help users resolve issues quickly and efficiently.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Powerful Moderation</h3>
+        <p>Keep your server safe with powerful moderation commands, ensuring a friendly environment.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Utility Commands</h3>
+        <p>Access a variety of useful commands to help manage your server with ease.</p>
+      </div>
+      <div class="feature-item">
+        <h3>Fun Commands (Coming Soon)</h3>
+        <p>Get ready for exciting fun commands to keep your community engaged and entertained.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <p>&copy; 2025 LunarBot | Developed by XxInfernoGamingxX</p>
   </footer>
+
 </body>
 </html>
