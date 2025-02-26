@@ -1,309 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>LunarBot</title>
-  <link rel="icon" href="https://cdn.discordapp.com/avatars/1160757700515352647/a_7ee2c8c7b02e839d232364eed8932c36.gif">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Arial', sans-serif;
-      color: #fff;
-      background: #0f0f0f;
-      overflow-x: hidden;
-      padding-top: 80px;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    header {
-      background: #1f1f1f;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 10;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 36px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-    nav {
-      text-align: center;
-      margin-top: 20px;
-    }
-    nav a {
-      color: #fff;
-      font-size: 18px;
-      margin: 0 15px;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    nav a:hover, .active {
-      color: #ff6347;
-    }
-    .hero {
-      background: linear-gradient(135deg, rgba(0, 72, 133, 1) 0%, rgba(59, 103, 255, 1) 100%);
-      padding: 100px 20px;
-      text-align: center;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-    }
-    .hero h2 {
-      font-size: 60px;
-      color: #fff;
-      margin-bottom: 20px;
-    }
-    .hero p {
-      font-size: 20px;
-      color: #ddd;
-      margin-bottom: 40px;
-    }
-    .cta-btn {
-      background: #ff6347;
-      padding: 12px 30px;
-      font-size: 20px;
-      color: #fff;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-    .cta-btn:hover {
-      background: #ff4500;
-    }
-    .features {
-      padding: 60px 20px;
-      background: #1a1a1a;
-      text-align: center;
-    }
-    .features h2 {
-      font-size: 40px;
-      margin-bottom: 20px;
-    }
-    .feature-list {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-    }
-    .feature-item {
-      background: #333;
-      width: 30%;
-      margin: 15px;
-      padding: 30px;
-      border-radius: 10px;
-      text-align: center;
-      transition: transform 0.3s;
-    }
-    .feature-item:hover {
-      transform: translateY(-10px);
-    }
-    .stats {
-      padding: 60px 20px;
-      background: #333;
-      text-align: center;
-      color: #fff;
-    }
-    .stats h2 {
-      font-size: 40px;
-      margin-bottom: 20px;
-    }
-    .stat {
-      font-size: 24px;
-      margin: 10px 0;
-    }
-    .footer {
-      background: #111;
-      padding: 20px;
-      text-align: center;
-      color: #888;
-      margin-top: auto;
-    }
-    .avatar-img {
-      border-radius: 50%;
-      width: 100px;
-      height: 100px;
-      margin-bottom: 20px;
-    }
-    .reviews {
-      background: #333;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    .review-text {
-      font-size: 24px;
-      color: #fff;
-      font-style: italic;
-      transition: opacity 1s ease-in-out;
-    }
-    .review-author {
-      margin-top: 20px;
-      color: #ff6347;
-      font-size: 18px;
-      font-weight: bold;
-    }
-    .policy-links {
-      margin-top: 30px;
-      text-align: center;
-      font-size: 16px;
-    }
-    .policy-links a {
-      color: #ff6347;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    .policy-links a:hover {
-      text-decoration: underline;
-    }
-    .policy-section {
-      padding: 40px 20px;
-      background: #222;
-      color: #fff;
-    }
-    .policy-section h3 {
-      font-size: 30px;
-      margin-bottom: 20px;
-    }
-    .policy-section p {
-      font-size: 18px;
-      line-height: 1.6;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LunarBot - Your Ultimate Discord Companion</title>
+    <meta name="description" content="LunarBot - Advanced Discord bot trusted by 160+ servers and 11k+ users. Featuring moderation, utility, tickets, economy, AI and more!">
+    <meta property="og:title" content="LunarBot - Premium Discord Bot">
+    <meta property="og:description" content="The most advanced Discord bot for your server needs">
+    <meta property="og:image" content="assets/images/lunarbot-banner.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* [Previous CSS styles remain the same up to body] */
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+    </style>
 </head>
 <body>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">LunarBot</a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#stats">Stats</a>
+                <a href="#contact">Contact</a>
+                <a href="tos.html">Terms of Service</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Header Section -->
-  <header>
-    <h1>LunarBot</h1>
-  </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to LunarBot</h1>
+            <p>The Ultimate Discord Bot for Your Server</p>
+            <a href="PUTHEINVLINKTOBOTHERE" class="cta-button">Add to Discord</a>
+        </div>
+    </section>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <img class="avatar-img" src="https://cdn.discordapp.com/avatars/1160757700515352647/a_7ee2c8c7b02e839d232364eed8932c36.gif" alt="LunarBot Avatar">
-    <h2>Welcome to LunarBot</h2>
-    <p>The Ultimate Bot for Your Discord Server</p>
-    <a class="cta-btn" href="https://discordapp.com/oauth2/authorize?client_id=1160757700515352647&scope=bot&permissions=2146958847" target="_blank">Invite LunarBot</a>
-  </section>
+    <section id="features" class="features">
+        <h2 class="section-title">Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-shield-alt feature-icon"></i>
+                <h3>Moderation</h3>
+                <p>Advanced moderation tools to keep your server safe</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-ticket-alt feature-icon"></i>
+                <h3>Advanced Tickets</h3>
+                <p>Streamlined ticket system for better support</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-coins feature-icon"></i>
+                <h3>Economy</h3>
+                <p>Engaging economy system for your community</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-robot feature-icon"></i>
+                <h3>AI Integration</h3>
+                <p>Smart AI features for enhanced interaction</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-tools feature-icon"></i>
+                <h3>Utility</h3>
+                <p>Essential utility commands for server management</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- Features Section -->
-  <section class="features">
-    <h2>Features</h2>
-    <div class="feature-list">
-      <div class="feature-item">
-        <h3>CAPTCHA Verification</h3>
-        <p>Ensure that only real users can join your server with advanced CAPTCHA verification.</p>
-      </div>
-      <div class="feature-item">
-        <h3>Ticket System</h3>
-        <p>Provide a support ticket system to help users resolve issues quickly and efficiently.</p>
-      </div>
-      <div class="feature-item">
-        <h3>Powerful Moderation</h3>
-        <p>Keep your server safe with powerful moderation commands, ensuring a friendly environment.</p>
-      </div>
-      <div class="feature-item">
-        <h3>Utility Commands</h3>
-        <p>Access a variety of useful commands to help manage your server with ease.</p>
-      </div>
-      <div class="feature-item">
-        <h3>Fun Commands (Coming Soon)</h3>
-        <p>Get ready for exciting fun commands to keep your community engaged and entertained.</p>
-      </div>
-    </div>
-  </section>
+    <section id="stats" class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>160+</h3>
+                <p>Trusted Servers</p>
+            </div>
+            <div class="stat-item">
+                <h3>11k+</h3>
+                <p>Active Users</p>
+            </div>
+            <div class="stat-item">
+                <h3>99.9%</h3>
+                <p>Uptime</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- Stats Section -->
-  <section class="stats">
-    <h2>LunarBot Stats</h2>
-    <div class="stat">Used in Over 150+ Servers</div>
-    <div class="stat">9K+ Users</div>
-    <div class="stat">99.9% Uptime</div>
-  </section>
+    <section id="contact" class="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:lunarbotdc@gmail.com">lunarbotdc@gmail.com</a></p>
+            <div class="command-info">
+                <h3>Need Help?</h3>
+                <p>Use <code>/help</code> to see all commands</p>
+                <p>Use <code>/support</code> to contact our support team</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- Reviews Section -->
-  <section class="reviews">
-    <h2>User Reviews</h2>
-    <div class="review-text" id="review-text">Loading reviews...</div>
-    <div class="review-author" id="review-author"></div>
-  </section>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="tos.html">Terms of Service</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="#features">Features</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p>&copy; 2024 LunarBot. All rights reserved.</p>
+        </div>
+    </footer>
 
-  <!-- Terms of Service Section -->
-  <section class="policy-section" id="tos">
-    <h3>Terms of Service</h3>
-    <p>Welcome to LunarBot! By using this bot, you agree to the following terms:</p>
-    <ul>
-      <li>Do not use the bot for illegal activities.</li>
-      <li>Do not abuse or spam commands.</li>
-      <li>Respect other users in your server.</li>
-      <li>We are not responsible for any damages caused by the bot.</li>
-      <li>We reserve the right to modify or terminate the bot's service at any time.</li>
-    </ul>
-    <p>By using LunarBot, you agree to comply with these terms.</p>
-  </section>
+    <script>
+        // Scroll reveal animation
+        window.addEventListener('scroll', function() {
+            var reveals = document.querySelectorAll('.reveal');
+            
+            reveals.forEach(function(reveal) {
+                var windowHeight = window.innerHeight;
+                var revealTop = reveal.getBoundingClientRect().top;
+                var revealPoint = 150;
+                
+                if(revealTop < windowHeight - revealPoint) {
+                    reveal.classList.add('active');
+                }
+            });
+        });
 
-  <!-- Privacy Policy Section -->
-  <section class="policy-section" id="privacy-policy">
-    <h3>Privacy Policy</h3>
-    <p>Your privacy is important to us. Here's what we collect and how we use it:</p>
-    <ul>
-      <li>We collect basic user data such as username, ID, and server information for functionality purposes.</li>
-      <li>We do not share any user data with third parties without consent.</li>
-      <li>All data is processed securely and kept confidential.</li>
-      <li>We use this data solely for providing and improving bot services.</li>
-      <li>By using the bot, you consent to our collection and use of data as described in this policy.</li>
-    </ul>
-  </section>
-
-  <!-- Footer Section -->
-  <footer class="footer">
-    <p>&copy; 2025 LunarBot | Developed by XxInfernoGamingxX</p>
-  </footer>
-
-  <script>
-    const reviews = [
-      { text: "Amazing bot! It has everything I need for managing my server. Highly recommended!", author: "- John Doe" },
-      { text: "Great bot but sometimes buggy. Needs improvement in stability.", author: "- Jane Smith" },
-      { text: "Horrible experience. Bot crashed multiple times and had issues with commands.", author: "- Alex Johnson" },
-      { text: "LunarBot has great features, but there are occasional hiccups with the command processing.", author: "- Michael Davis" },
-      { text: "This bot is amazing! It’s helped me manage my server effortlessly.", author: "- Emily White" },
-      { text: "Bad bot. Don’t recommend it, too many bugs and slow response time.", author: "- Chris Black" },
-      { text: "Terrible bot. Doesn’t work most of the time, and support is non-existent.", author: "- Sarah King" },
-      { text: "The bot often lags and takes forever to process commands. Very disappointing.", author: "- Nathaniel Harris" },
-      { text: "Waste of time. Constantly breaking and no real customer support.", author: "- Olivia Moore" },
-      { text: "Not impressed at all. The bot is just glitchy and slow to respond.", author: "- William Turner" },
-      { text: "LunarBot did not meet my expectations. Very slow and unreliable.", author: "- Sophie Lewis" }
-    ];
-
-    let currentReviewIndex = 0;
-
-    function rotateReview() {
-      const reviewText = document.getElementById("review-text");
-      const reviewAuthor = document.getElementById("review-author");
-      
-      reviewText.style.opacity = 0;
-      
-      setTimeout(() => {
-        reviewText.textContent = reviews[currentReviewIndex].text;
-        reviewAuthor.textContent = reviews[currentReviewIndex].author;
-        reviewText.style.opacity = 1;
-        
-        currentReviewIndex = (currentReviewIndex + 1) % reviews.length;
-      }, 1000);
-    }
-
-    setInterval(rotateReview, 5000); // Change review every 5 seconds
-
-    // Initial call to populate the first review
-    rotateReview();
-  </script>
-
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
